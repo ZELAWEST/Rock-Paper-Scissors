@@ -42,12 +42,35 @@ function playRound(comChoice, humChoice) {
 
     if (comChoice == humChoice) {
         console.log("We have a Draw!")
-    } else if (comChoice == "rock" && humChoice == "scissors") {
-        computerScore += 1
-        console.log("You Lose")
+    } else if (comChoice == "rock") {
+        if (humChoice == "scissors") {
+            computerScore += 1
+            console.log("You Lose")
+        } else {
+            humanScore += 1
+            console.log("You win")
+        }
+    } else if (comChoice == "scissors") {
+        if (humChoice == "paper") {
+            computerScore += 1
+            console.log("You Lose")
+        } else {
+            humanScore += 1
+            console.log("You win")
+
+        }
+    } else if (comChoice == "paper") {
+        if (humChoice == "rocks") {
+            computerScore += 1
+            console.log("You Lose")
+        } else {
+            humanScore += 1
+            console.log("You win")
+
+        }
     }
 }
 
 
-}
+
 console.log(comChoice)
