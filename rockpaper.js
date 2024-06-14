@@ -28,9 +28,25 @@ function getHumanChoice() {
             return "Scissors"
 
         default:
-            return"The choice is wrong ,put numbers between 1 and 3"
-            
+            return "The choice is wrong ,put numbers between 1 and 3"
+
     }
 }
 let comChoice = getHumanChoice()
+
+function playRound(comChoice, humChoice) {
+
+
+    comChoice = comChoice.toLowerCase()
+    humChoice = humChoice.toLowerCase()
+
+    if (comChoice == humChoice) {
+        console.log("We have a Draw!")
+    } else if (comChoice == "rock" && humChoice == "scissors") {
+        computerScore += 1
+    }
+}
+
+
+}
 console.log(comChoice)
