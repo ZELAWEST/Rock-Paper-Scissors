@@ -44,6 +44,7 @@ function playRound(comChoice, humChoice) {
         console.log("We have a Draw!")
     } else if (comChoice == "rock" && humChoice == "scissors") {
         computerScore += 1
+        console.log("You Lose")
     }
 }
 
