@@ -1,6 +1,6 @@
 
 
-
+//getComputer gets choice of Computer
 function getComputerChoice() {
 
     let computerChoice = Math.floor(Math.random() * 3) + 1
@@ -15,7 +15,7 @@ function getComputerChoice() {
     }
 }
 
-
+//getHumanChoice get the choice of a Human
 function getHumanChoice() {
     let humanChoice = prompt("Rock Paper Or Scissors !")
 
@@ -29,7 +29,7 @@ function getHumanChoice() {
 
 
 
-
+//playGame's job is to let the game played five rounds and then dertiming the winner
 function playGame() {
     let humanScore = 0
     let computerScore = 0
