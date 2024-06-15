@@ -34,8 +34,7 @@ function playRound(comChoice, humChoice) {
 
     comChoice = comChoice.toLowerCase()
     if(comChoice == humChoice){
-        console.log(comChoice)
-        console.log(humChoice)
+        
         console.log("its  a draw")
     }
     else if (comChoice == 'rock' && humChoice == 'scissors' ||
@@ -43,8 +42,8 @@ function playRound(comChoice, humChoice) {
         comChoice == 'paper' && humChoice == 'rock') {
 
 
-        console.log(comChoice)
-        console.log(humChoice)
+        
+        computerScore++
         console.log("you lose")
 
     }else if (humChoice == 'rock' && comChoice == 'scissors' ||
@@ -52,8 +51,7 @@ function playRound(comChoice, humChoice) {
               humChoice == 'paper' && comChoice == 'rock') {
 
 
-        console.log(comChoice)
-        console.log(humChoice)
+        humanScore++
         console.log("you win")
     }else{
         console.log("wrong input")
