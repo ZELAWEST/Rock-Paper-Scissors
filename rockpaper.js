@@ -18,59 +18,47 @@ function getComputerChoice() {
 
 
 function getHumanChoice() {
-    let humanChoice = +prompt("Give a number between 1 and 3!")
-    switch (humanChoice) {
-        case 1:
-            return "Rock"
-        case 2:
-            return "Paper"
-        case 3:
-            return "Scissors"
+    let humanChoice = prompt("Rock Paper Or Scissors !")
 
-        default:
-            return "The choice is wrong ,put numbers between 1 and 3"
+    return humanChoice.toLowerCase()
 
-    }
+
+
+
 }
-let comChoice = getHumanChoice()
+
+const computerChoice = getComputerChoice()
+const humanChoice = getHumanChoice()
 
 function playRound(comChoice, humChoice) {
 
-
     comChoice = comChoice.toLowerCase()
-    humChoice = humChoice.toLowerCase()
+    if(comChoice == humChoice){
+        console.log(comChoice)
+        console.log(humChoice)
+        console.log("its  a draw")
+    }
+    else if (comChoice == 'rock' && humChoice == 'scissors' ||
+        comChoice == 'scissors' && humChoice == 'paper' ||
+        comChoice == 'paper' && humChoice == 'rock') {
 
-    if (comChoice == humChoice) {
-        console.log("We have a Draw!")
-    } else if (comChoice == "rock") {
-        if (humChoice == "scissors") {
-            computerScore += 1
-            console.log("You Lose")
-        } else {
-            humanScore += 1
-            console.log("You win")
-        }
-    } else if (comChoice == "scissors") {
-        if (humChoice == "paper") {
-            computerScore += 1
-            console.log("You Lose")
-        } else {
-            humanScore += 1
-            console.log("You win")
 
-        }
-    } else if (comChoice == "paper") {
-        if (humChoice == "rocks") {
-            computerScore += 1
-            console.log("You Lose")
-        } else {
-            humanScore += 1
-            console.log("You win")
+        console.log(comChoice)
+        console.log(humChoice)
+        console.log("you lose")
 
-        }
+    }else if (humChoice == 'rock' && comChoice == 'scissors' ||
+              humChoice == 'scissors' && comChoice == 'paper' ||
+              humChoice == 'paper' && comChoice == 'rock') {
+
+
+        console.log(comChoice)
+        console.log(humChoice)
+        console.log("you win")
+    }else{
+        console.log("wrong input")
     }
 }
 
 
-
-console.log(comChoice)
+playRound(computerChoice, humanChoice)
