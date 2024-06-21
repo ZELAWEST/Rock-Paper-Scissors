@@ -1,23 +1,45 @@
-const rockBtn = document.querySelector('#rock')
 
-const paperBtn = document.querySelector('#paper')
-const scissorsBtn = document.querySelector('#scissors')
+const div = document.querySelector('div')
+const score = document.querySelector('#score')
 
+let humanScore = 0
+let computerScore = 0
+let roundCounter = 0
 
 
 //callback for the selection
 function playerSelection() {
     let allbuttons = document.querySelectorAll('button')
     btns = Array.from(allbuttons)
+    let temp
+    let divText = ''
     btns.forEach(bt =>
         bt.addEventListener('click', (e) => {
 
 
-            alert(e.target)
+            temp = e.target.textContent.toLowerCase()
+            let comChoice = getComputerChoice()
+            if (computerScore < 5 && humanScore < 5) {
+                console.log(computerScore + " " + humanScore)
+                playRound(comChoice, temp)
+                 score.textContent = 'Computer  ' + computerScore + ' and ' + 'Human  ' + humanScore
+            } else if (computerScore == 5) {
+                divText = `Computer score is  ${computerScore}  and Human score is  ${humanScore} \n
+                                   The winner is the computer`}
+            else {
+                divText = `Computer score is  ${computerScore}  and Human score is  ${humanScore} \n
+                                   The winner is the Human`
+
+            }
+            div.textContent = divText
         }
         )
     )
+
+
+
 }
+
 playerSelection()
 
 // rockBtn.addEventListener('click', playerSelection)
@@ -30,11 +52,11 @@ function getComputerChoice() {
     let computerChoice = Math.floor(Math.random() * 3) + 1
     switch (computerChoice) {
         case 1:
-            return "Rock"
+            return "Rock".toLocaleLowerCase()
         case 2:
-            return "Paper"
+            return "Paper".toLocaleLowerCase()
         case 3:
-            return "Scissors"
+            return "Scissors".toLocaleLowerCase()
 
     }
 }
@@ -78,35 +100,6 @@ function playRound(comChoice, humChoice) {
         console.log("wrong input")
     }
 }
-// -------End---PlayRound---Declaration-------//
-
-
-//playGame's job is to let the game played five rounds and then dertiming the winner
-function playGame() {
-    let humanScore = 0
-    let computerScore = 0
-    let computerChoice
-    let humanChoice
-
-    let roundCounter = 0
-    //--------playRound---Declaration----------//
 
 
 
-    computerChoice = getComputerChoice()
-    humanChoice = getHumanChoice()
-
-    playRound(computerChoice, humanChoice)
-    roundCounter++
-
-
-
-    if (humanScore > computerScore) {
-        console.log("You are a winner")
-    } else if (humanScore < computerScore) {
-        console.log("Sorry, You lost")
-    } else {
-        console.log("Game ends in a Draw!")
-    }
-}
-playGame()
